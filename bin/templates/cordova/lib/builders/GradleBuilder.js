@@ -162,25 +162,7 @@ GradleBuilder.prototype.prepEnv = function(opts) {
     .then(function() {
         return self.prepBuildFiles();
     }).then(function() {
-        // Copy the gradle wrapper on each build so that:
-        // A) we don't require the Android SDK at project creation time, and
-        // B) we always use the SDK's latest version of it.
-        // check_reqs ensures that this is set.
-        /*jshint -W069 */
-        var sdkDir = process.env['ANDROID_HOME'];
-        /*jshint +W069 */
-        var wrapperDir = path.join(sdkDir, 'tools', 'templates', 'gradle', 'wrapper');
-        if (process.platform == 'win32') {
-            shell.rm('-f', path.join(self.root, 'gradlew.bat'));
-            shell.cp(path.join(wrapperDir, 'gradlew.bat'), self.root);
-        } else {
-            shell.rm('-f', path.join(self.root, 'gradlew'));
-            shell.cp(path.join(wrapperDir, 'gradlew'), self.root);
-        }
-        shell.rm('-rf', path.join(self.root, 'gradle', 'wrapper'));
-        shell.mkdir('-p', path.join(self.root, 'gradle'));
-        shell.cp('-r', path.join(wrapperDir, 'gradle', 'wrapper'), path.join(self.root, 'gradle'));
-
+        
         // If the gradle distribution URL is set, make sure it points to version we want.
         // If it's not set, do nothing, assuming that we're using a future version of gradle that we don't want to mess with.
         // For some reason, using ^ and $ don't work.  This does the job, though.
