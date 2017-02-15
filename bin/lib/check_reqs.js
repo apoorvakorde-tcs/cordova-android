@@ -299,8 +299,7 @@ module.exports.check_all = function() {
     var requirements = [
         new Requirement('java', 'Java JDK'),
         new Requirement('androidSdk', 'Android SDK'),
-        new Requirement('androidTarget', 'Android target'),
-        new Requirement('gradle', 'Gradle')
+        new Requirement('androidTarget', 'Android target')
     ];
 
     var checkFns = [
