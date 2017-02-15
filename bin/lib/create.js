@@ -254,7 +254,7 @@ exports.create = function(project_path, config, options, events) {
             shell.cp('-r', path.join(project_template_dir, 'assets'), project_path);
             shell.cp('-r', path.join(project_template_dir, 'res'), project_path);
             shell.cp(path.join(project_template_dir, 'gitignore'), path.join(project_path, '.gitignore'));
-			shell.cp('-r', path.join(project_template_dir, 'gradle'), project_path);
+			shell.cp('-r', path.join(project_template_dir, 'gradle', 'wrapper'), path.join(project_path, 'gradle'));
 			if (process.platform == 'win32') {
 				shell.cp(path.join(project_template_dir, 'gradlew.bat'), project_path);
 			} else {
