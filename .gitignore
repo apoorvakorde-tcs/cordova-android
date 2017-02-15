@@ -35,6 +35,7 @@ Desktop.ini
 *.swp
 *.class
 *.jar
+!/bin/templates/project/gradle/wrapper/gradle-wrapper.jar
 !/spec/fixtures/org.test.plugins.dummyplugin/src/android/TestLib.jar
 # IntelliJ IDEA files
 *.iml
