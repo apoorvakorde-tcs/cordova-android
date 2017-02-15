@@ -251,7 +251,7 @@ exports.create = function(project_path, config, options, events) {
         setShellFatal(true, function() {
             var project_template_dir = options.customTemplate || path.join(ROOT, 'bin', 'templates', 'project');
             // copy project template
-            shell.cp('-r', path.join(, 'assets'), project_path);
+            shell.cp('-r', path.join(project_template_dir, 'assets'), project_path);
             shell.cp('-r', path.join(project_template_dir, 'res'), project_path);
             shell.cp(path.join(project_template_dir, 'gitignore'), path.join(project_path, '.gitignore'));
 			shell.cp('-r', path.join(project_template_dir, 'gradle'), project_path);
